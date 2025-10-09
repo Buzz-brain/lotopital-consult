@@ -1,0 +1,80 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  }
+}
+
+@layer utilities {
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@layer components {
+
+  /* .btn-primary {
+    @apply bg-blue-600 text-white hover:bg-blue-700 focus-visible:ring-blue-600;
+    @apply bg-[#ff6e04] text-white hover:bg-[#c56000] focus-visible:ring-[#ff6e04];
+  }
+  
+  .btn-secondary {
+    @apply bg-teal-600 text-white hover:bg-teal-700 focus-visible:ring-teal-600;
+    @apply bg-[#0606c6] text-white hover:bg-[#0404a6] focus-visible:ring-[#0606c6];
+  }  */
+
+  /* Button system - use these classes across the app: .btn + modifier */
+
+  .btn {
+    @apply inline-flex items-center justify-center rounded-lg font-semibold transition-shadow focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2;
+  }
+
+  /* Orange primary (provided color) */
+  .btn-orange {
+    @apply bg-[#ff6e04] text-white hover:bg-[#c56000] focus-visible:ring-[#ff6e04];
+  }
+
+  /* Blue primary (provided color) */
+  .btn-blue {
+    @apply bg-[#0606c6] text-white hover:bg-[#0404a6] focus-visible:ring-[#0606c6];
+  }
+
+  /* Gradient (optional) - still available if you want gradient buttons */
+  .btn-gradient {
+    /* uses the blue -> orange accent gradient */
+    @apply bg-gradient-to-r from-[#0606c6] to-[#ff6e04] text-white hover:opacity-95;
+  }
+
+  /* Ghost / outline button */
+  .btn-ghost {
+    @apply bg-white text-gray-700 border-2 border-gray-200 hover:border-blue-600;
+  }
+
+  /* Muted / secondary button */
+  .btn-muted {
+    @apply bg-gray-200 text-gray-700 hover:bg-gray-300;
+  }
+
+  /* Backwards-compatible names used earlier */
+  .btn-primary { 
+    @apply bg-[#ff6e04] text-white hover:bg-[#c56000] focus-visible:ring-[#ff6e04]; 
+  }
+  .btn-secondary { 
+    @apply bg-[#0606c6] text-white hover:bg-[#0404a6] focus-visible:ring-[#0606c6];
+  }
+
+  
+}
