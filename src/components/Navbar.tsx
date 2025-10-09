@@ -22,7 +22,11 @@ export const Navbar = () => {
           <Link to="/" className="flex items-center gap-2 group">
             <div className="relative">
               <div className="absolute inset-0 rounded-lg blur-sm opacity-70 group-hover:opacity-100 transition-opacity" />
-              <Building2 className="w-8 h-8 text-blue-600 relative" />
+              <img
+                src="/logo.png"
+                width="30px"
+                alt="lotopital_logo"
+              />
             </div>
             <span className="text-xl font-bold bg-gradient-to-r from-blue-600 to-orange-500 bg-clip-text text-transparent">
               Lotopital Consult
@@ -35,10 +39,10 @@ export const Navbar = () => {
                 key={link.path}
                 to={link.path}
                 className={cn(
-                  'relative text-sm font-medium transition-colors',
+                  "relative text-sm font-medium transition-colors",
                   location.pathname === link.path
-                    ? 'text-blue-600'
-                    : 'text-gray-600 hover:text-blue-600'
+                    ? "text-blue-600"
+                    : "text-gray-600 hover:text-blue-600"
                 )}
               >
                 {link.name}
@@ -77,7 +81,7 @@ export const Navbar = () => {
       {isOpen && (
         <motion.div
           initial={{ opacity: 0, height: 0 }}
-          animate={{ opacity: 1, height: 'auto' }}
+          animate={{ opacity: 1, height: "auto" }}
           exit={{ opacity: 0, height: 0 }}
           className="md:hidden border-t border-gray-200 bg-white"
         >
@@ -88,10 +92,10 @@ export const Navbar = () => {
                 to={link.path}
                 onClick={() => setIsOpen(false)}
                 className={cn(
-                  'block px-4 py-2 rounded-lg text-sm font-medium transition-colors',
+                  "block px-4 py-2 rounded-lg text-sm font-medium transition-colors",
                   location.pathname === link.path
-                    ? 'bg-blue-50 text-blue-600'
-                    : 'text-gray-600 hover:bg-gray-50'
+                    ? "bg-blue-50 text-blue-600"
+                    : "text-gray-600 hover:bg-gray-50"
                 )}
               >
                 {link.name}

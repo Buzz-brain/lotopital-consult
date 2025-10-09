@@ -37,7 +37,7 @@ export const Footer = () => {
             <Link to="/" className="flex items-center gap-2 mb-4 group">
               <div className="relative">
                 <div className="absolute inset-0 rounded-lg blur-sm opacity-70" />
-                <Building2 className="w-8 h-8 text-blue-500 relative" />
+                <img src="/logo.png" width="35px" alt="lotopital_logo" />
               </div>
               <span className="text-xl font-bold text-white">
                 Lotopital Consult
