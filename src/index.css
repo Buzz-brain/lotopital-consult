@@ -26,16 +26,6 @@ html {
 
 @layer components {
 
-  /* .btn-primary {
-    @apply bg-blue-600 text-white hover:bg-blue-700 focus-visible:ring-blue-600;
-    @apply bg-[#ff6e04] text-white hover:bg-[#c56000] focus-visible:ring-[#ff6e04];
-  }
-  
-  .btn-secondary {
-    @apply bg-teal-600 text-white hover:bg-teal-700 focus-visible:ring-teal-600;
-    @apply bg-[#0606c6] text-white hover:bg-[#0404a6] focus-visible:ring-[#0606c6];
-  }  */
-
   /* Button system - use these classes across the app: .btn + modifier */
 
   .btn {
@@ -69,9 +59,6 @@ html {
   }
 
   /* Backwards-compatible names used earlier */
-  /* .btn-primary { 
-    @apply bg-[#ff6e04] text-white hover:bg-[#c56000] focus-visible:ring-[#ff6e04]; 
-  } */
   .btn-primary {
     @apply bg-[#ff4e00] text-white hover:bg-[#c56000] focus-visible:ring-[#ff4e00];
     font-family: 'Poppins', sans-serif;
