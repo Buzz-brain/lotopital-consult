@@ -107,12 +107,14 @@ export const HomePage = () => {
       <section className="relative pt-20 pb-16 px-4 overflow-hidden">
         {/* Subtle diagonal gradient overlay background */}
         <div className="absolute inset-0 pointer-events-none">
-          <div style={{
-            width: '100%',
-            height: '100%',
-            background: 'linear-gradient(120deg, #2563eb 0%, #fff 80%)',
-            opacity: 0.16,
-          }} />
+          <div
+            style={{
+              width: "100%",
+              height: "100%",
+              background: "linear-gradient(120deg, #2563eb 0%, #fff 80%)",
+              opacity: 0.16,
+            }}
+          />
         </div>
 
         <div className="max-w-7xl mx-auto relative z-10 flex flex-col md:flex-row items-center justify-between gap-12">
@@ -128,14 +130,15 @@ export const HomePage = () => {
             </span>
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
               <span className="bg-gradient-to-r from-blue-700 via-blue-700 to-orange-700 bg-clip-text text-transparent">
-                Formalizing Your Business
+                Structure is the New Strategy -
               </span>
               <br />
-              <span className="text-gray-900">in Nigeria</span>
+              <span className="text-gray-900"> We Help You Build It Right</span>
             </h1>
             <p className="text-xl text-gray-600 mb-10 max-w-2xl">
-              Simplified, Secure, and Smart. Register your business with CAC in
-              minutes, not months.
+              Simplified, Stress Free & Secure. <br />
+              Register Your Business With Corporate Affairs Commission, Nigeria
+              in Minutes.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Link to="/register">
@@ -144,7 +147,6 @@ export const HomePage = () => {
                   whileTap={{ scale: 0.95 }}
                   className="px-8 py-4 btn-primary text-white rounded-lg font-semibold shadow-lg hover:shadow-xl transition-shadow group flex items-center justify-center gap-2"
                 >
-                    {/* ...existing code... */}
                   Start Registration
                   <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                 </motion.button>
@@ -179,25 +181,36 @@ export const HomePage = () => {
         </div>
       </section>
 
-
-{/* How it Works */}
+      {/* How it Works */}
       <section className="py-20 px-4 bg-white">
         <div className="max-w-7xl mx-auto">
           {/* Section label */}
           <div className="text-center mb-4">
-            <span className="uppercase tracking-widest text-blue-600 text-xs font-semibold bg-blue-50 px-3 py-1 rounded-full inline-block">How it works</span>
+            <span className="uppercase tracking-widest text-blue-600 text-xs font-semibold bg-blue-50 px-3 py-1 rounded-full inline-block">
+              How it works
+            </span>
           </div>
           <div className="text-center mb-12">
-            <h2 className="text-4xl md:text-5xl font-bold mb-3 text-gray-900">Get Registered in 3 Simple Steps</h2>
-            <p className="text-xl text-gray-600">We make business registration effortless and transparent.</p>
+            <h2 className="text-4xl md:text-5xl font-bold mb-3 text-gray-900">
+              Get Registered in 3 Simple Steps
+            </h2>
+            <p className="text-xl text-gray-600">
+              We make business registration effortless and transparent.
+            </p>
           </div>
           <div className="relative flex flex-col md:flex-row items-stretch justify-between gap-8 md:gap-0">
             {steps.map((step, idx) => (
-              <div key={idx} className="flex-1 flex flex-col items-center md:items-stretch relative group">
+              <div
+                key={idx}
+                className="flex-1 flex flex-col items-center md:items-stretch relative group"
+              >
                 {/* Connector line (desktop only, not after last step) */}
                 {idx < steps.length - 1 && (
                   <div className="hidden md:block absolute top-1/2 right-0 w-full h-1 z-0">
-                    <div className="h-1 w-full bg-gradient-to-r from-blue-100 to-orange-100 opacity-60" style={{marginLeft: '72px', marginRight: '-72px'}} />
+                    <div
+                      className="h-1 w-full bg-gradient-to-r from-blue-100 to-orange-100 opacity-60"
+                      style={{ marginLeft: "72px", marginRight: "-72px" }}
+                    />
                   </div>
                 )}
                 <div className="relative z-10 bg-white rounded-2xl shadow-xl p-8 flex flex-col items-center md:items-start transition-transform group-hover:-translate-y-2 duration-200 border border-gray-100 hover:border-blue-200">
@@ -205,9 +218,13 @@ export const HomePage = () => {
                     <div className="w-16 h-16 rounded-full flex items-center justify-center bg-blue-600 shadow-lg border border-blue-100">
                       <step.icon className="w-8 h-8 text-white" />
                     </div>
-                    <span className="ml-4 text-5xl font-extrabold text-blue-100 group-hover:text-blue-400 transition-colors">{idx + 1}</span>
+                    <span className="ml-4 text-5xl font-extrabold text-blue-100 group-hover:text-blue-400 transition-colors">
+                      {idx + 1}
+                    </span>
                   </div>
-                  <h3 className="text-2xl font-bold mb-2 text-gray-900">{step.title}</h3>
+                  <h3 className="text-2xl font-bold mb-2 text-gray-900">
+                    {step.title}
+                  </h3>
                   <p className="text-gray-600 text-base">{step.description}</p>
                 </div>
               </div>
@@ -215,7 +232,6 @@ export const HomePage = () => {
           </div>
         </div>
       </section>
-
 
       {/* Our Services - Redesigned */}
       <section className="py-24 px-4 bg-gradient-to-br from-gray-50 to-blue-50 relative overflow-hidden">
@@ -225,11 +241,17 @@ export const HomePage = () => {
         <div className="max-w-7xl mx-auto relative z-10">
           {/* Section label */}
           <div className="text-center mb-4">
-            <span className="uppercase tracking-widest text-blue-600 text-xs font-semibold bg-blue-50 px-3 py-1 rounded-full inline-block">Our services</span>
+            <span className="uppercase tracking-widest text-blue-600 text-xs font-semibold bg-blue-50 px-3 py-1 rounded-full inline-block">
+              Our services
+            </span>
           </div>
           <div className="text-center mb-12">
-            <h2 className="text-4xl md:text-5xl font-bold mb-3 text-gray-900">Explore Our Service Offerings</h2>
-            <p className="text-xl text-gray-600">Comprehensive business registration services tailored for you.</p>
+            <h2 className="text-4xl md:text-5xl font-bold mb-3 text-gray-900">
+              Explore Our Service Offerings
+            </h2>
+            <p className="text-xl text-gray-600">
+              Comprehensive business registration services tailored for you.
+            </p>
           </div>
 
           <motion.div
@@ -251,7 +273,9 @@ export const HomePage = () => {
                   <div className="relative h-full rounded-3xl p-8 bg-white/70 backdrop-blur-md border border-blue-100 shadow-xl group-hover:shadow-2xl transition-all duration-300 flex flex-col items-center text-center overflow-hidden">
                     {/* Icon with glassy background */}
                     <div className="w-16 h-16 rounded-2xl flex items-center justify-center mb-6 bg-gradient-to-br from-white/60 to-blue-100/40 border border-blue-200 shadow-md group-hover:scale-105 transition-transform">
-                      <div className={`w-12 h-12 rounded-xl flex items-center justify-center bg-gradient-to-br ${service.color} shadow-lg`}>
+                      <div
+                        className={`w-12 h-12 rounded-xl flex items-center justify-center bg-gradient-to-br ${service.color} shadow-lg`}
+                      >
                         <service.icon className="w-7 h-7 text-white drop-shadow-md" />
                       </div>
                     </div>
@@ -294,11 +318,17 @@ export const HomePage = () => {
         <div className="max-w-7xl mx-auto relative z-10">
           {/* Section label */}
           <div className="text-center mb-4">
-            <span className="uppercase tracking-widest text-blue-600 text-xs font-semibold bg-blue-50 px-3 py-1 rounded-full inline-block">Why choose us</span>
+            <span className="uppercase tracking-widest text-blue-600 text-xs font-semibold bg-blue-50 px-3 py-1 rounded-full inline-block">
+              Why choose us
+            </span>
           </div>
           <div className="text-center mb-12">
-            <h2 className="text-4xl md:text-5xl font-bold mb-3 text-gray-900">Why We're the Preferred Choice</h2>
-            <p className="text-xl text-gray-600">Experience seamless, secure, and expert-led business registration.</p>
+            <h2 className="text-4xl md:text-5xl font-bold mb-3 text-gray-900">
+              Why We're the Preferred Choice
+            </h2>
+            <p className="text-xl text-gray-600">
+              Experience seamless, secure, and expert-led business registration.
+            </p>
           </div>
           <motion.div
             initial="hidden"

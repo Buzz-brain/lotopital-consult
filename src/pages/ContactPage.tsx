@@ -143,9 +143,8 @@ export const ContactPage = () => {
                 </h3>
                 <div className="space-y-1 text-center">
                   <p className="text-gray-600">
-                    Monday - Friday: 9:00 AM - 6:00 PM
+                    Monday - Saturday: 8:00 AM - 6:00 PM
                   </p>
-                  <p className="text-gray-600">Saturday: 10:00 AM - 4:00 PM</p>
                   <p className="text-gray-600">Sunday: Closed</p>
                 </div>
               </div>

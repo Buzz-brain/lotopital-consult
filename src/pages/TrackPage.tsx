@@ -80,34 +80,45 @@ export const TrackPage = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="relative bg-white/80 backdrop-blur-md rounded-3xl shadow-2xl border border-blue-100 p-10 flex flex-col items-center text-center overflow-hidden"
+            className="relative bg-gradient-to-br from-white/80 via-blue-50/60 to-cyan-100/80 backdrop-blur-xl rounded-3xl shadow-2xl border border-blue-200/60 p-10 flex flex-col items-center text-center overflow-hidden"
           >
-            <div className="w-20 h-20 bg-blue-100 rounded-full flex items-center justify-center mb-6">
+            {/* Decorative glassmorphism layers */}
+            <div className="absolute -top-10 -left-10 w-40 h-40 bg-blue-200/20 rounded-full blur-2xl z-0" aria-hidden="true" />
+            <div className="absolute -bottom-10 -right-10 w-32 h-32 bg-cyan-200/20 rounded-full blur-2xl z-0" aria-hidden="true" />
+            <div className="w-20 h-20 bg-gradient-to-br from-blue-200 to-cyan-200 rounded-full flex items-center justify-center mb-6 shadow-lg border border-blue-300/40">
               <Search className="w-10 h-10 text-[#0606c6]" />
             </div>
             <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-2">Check Application Status</h2>
             <p className="text-gray-600 mb-6 max-w-md mx-auto">Your tracking ID was sent to your email after submission.</p>
-            <form onSubmit={handleTrack} className="w-full mt-2">
-              <label htmlFor="track-input" className="block text-sm font-medium text-gray-700 mb-2 text-left">Tracking ID</label>
-              <div className="flex gap-3">
-                <div className="relative flex-1">
-                  <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400 pointer-events-none" />
-                  <input
+            <form onSubmit={handleTrack} className="w-full mt-2" aria-label="Track application form">
+              <div className="flex gap-3 items-end">
+                <div className="relative flex-1 group">
+                  <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-blue-400 pointer-events-none transition-colors group-focus-within:text-blue-600" />
+                  <label
+                    htmlFor="track-input"
+                    className={`absolute left-12 top-2 text-sm font-medium transition-all duration-200 pointer-events-none
+                      ${trackingId ? 'text-blue-600 scale-90 -translate-y-5' : 'text-gray-400 scale-100 translate-y-0'}`}
+                    aria-label="Tracking ID label"
+                  >
+                    Tracking ID
+                  </label>
+                  <motion.input
                     id="track-input"
                     type="text"
                     value={trackingId}
                     onChange={(e) => setTrackingId(e.target.value)}
                     placeholder="e.g., APP-2025-001"
-                    className="w-full pl-12 pr-4 py-3 border-2 border-blue-100 rounded-lg focus:border-blue-600 focus:outline-none transition-colors bg-white/90 text-gray-900 placeholder:text-gray-400"
+                    className="w-full pl-12 pr-4 py-3 border-2 border-blue-100 rounded-lg focus:border-blue-600 focus:outline-none transition-colors bg-white/90 text-gray-900 placeholder:text-gray-300 shadow-sm"
                     aria-label="Tracking ID"
                     autoComplete="off"
+                    whileFocus={{ boxShadow: '0 0 0 4px rgba(6,6,198,0.12)' }}
                   />
                 </div>
                 <motion.button
-                  whileHover={{ scale: 1.03 }}
-                  whileTap={{ scale: 0.98 }}
+                  whileHover={{ scale: 1.05, backgroundColor: '#0606c6', color: '#fff' }}
+                  whileTap={{ scale: 0.97 }}
                   disabled={loading}
-                  className="btn btn-primary px-8 py-3 font-semibold shadow-md disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2"
+                  className="px-8 py-3 font-semibold rounded-lg shadow-md bg-gradient-to-r from-blue-600 to-cyan-500 text-white disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
                   aria-label="Track application"
                   type="submit"
                 >

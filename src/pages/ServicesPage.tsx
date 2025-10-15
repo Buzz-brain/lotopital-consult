@@ -88,10 +88,16 @@ export const ServicesPage = () => {
                 >
                   <div className="relative bg-white/80 backdrop-blur-md rounded-3xl shadow-xl hover:shadow-2xl transition-all p-8 h-full border border-blue-100 hover:border-blue-400 transform-gpu overflow-hidden">
                     {/* Subtle premium price badge */}
-                    <div className="absolute top-8 right-8 flex items-center gap-1 bg-blue-100 text-[#0606c6] text-base font-semibold px-4 py-1.5 rounded-full shadow-sm border border-blue-200 z-10 group-hover:bg-blue-200 transition-colors">
-                      <span className="text-lg font-bold">₦</span>
-                      <span>{service.price.toLocaleString()}</span>
-                    </div>
+                    {typeof service.price === 'number' ? (
+                      <div className="absolute top-8 right-8 flex items-center gap-1 bg-blue-100 text-[#0606c6] text-base font-semibold px-4 py-1.5 rounded-full shadow-sm border border-blue-200 z-10 group-hover:bg-blue-200 transition-colors">
+                        <span className="text-lg font-bold">₦</span>
+                        <span>{service.price.toLocaleString()}</span>
+                      </div>
+                    ) : service.price === null ? null : (
+                      <div className="absolute top-8 right-8 flex items-center gap-1 bg-blue-100 text-[#0606c6] text-base font-semibold px-4 py-1.5 rounded-full shadow-sm border border-blue-200 z-10 group-hover:bg-blue-200 transition-colors">
+                        <span>{service.price}</span>
+                      </div>
+                    )}
 
                     {/* Subtle gradient border accent */}
                     <div className="absolute inset-0 rounded-3xl pointer-events-none border-2 border-transparent group-hover:border-blue-200 group-hover:shadow-lg transition-all" aria-hidden="true" />
@@ -129,9 +135,9 @@ export const ServicesPage = () => {
                         whileHover={{ scale: 1.03 }}
                         whileTap={{ scale: 0.98 }}
                         className="btn btn-primary w-full px-6 py-3 text-white rounded-lg font-semibold flex items-center justify-center gap-2 shadow-md"
-                        aria-label={`Register for ${service.name}`}
+                        aria-label={service.id === 'annual-returns' ? `File annual returns` : `Register for ${service.name}`}
                       >
-                        Register Now
+                        {service.id === 'annual-returns' ? 'File Now' : 'Register Now'}
                         <ArrowRight className="w-5 h-5" />
                       </motion.button>
                     </Link>

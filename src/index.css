@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -6,7 +6,7 @@
 
 @layer base {
   body {
-    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    font-family: 'Poppins', system-ui, -apple-system, sans-serif;
   }
 }
 
@@ -69,8 +69,13 @@ html {
   }
 
   /* Backwards-compatible names used earlier */
-  .btn-primary { 
+  /* .btn-primary { 
     @apply bg-[#ff6e04] text-white hover:bg-[#c56000] focus-visible:ring-[#ff6e04]; 
+  } */
+  .btn-primary {
+    @apply bg-[#ff4e00] text-white hover:bg-[#c56000] focus-visible:ring-[#ff4e00];
+    font-family: 'Poppins', sans-serif;
+    transition: background 0.2s;
   }
   .btn-secondary { 
     @apply bg-[#0606c6] text-white hover:bg-[#0404a6] focus-visible:ring-[#0606c6];

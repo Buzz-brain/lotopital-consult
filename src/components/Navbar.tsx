@@ -6,8 +6,10 @@ import { cn } from '../utils/cn';
 
 const navLinks = [
   { name: 'Home', path: '/' },
+  { name: 'About', path: '/about' },
   { name: 'Services', path: '/services' },
   { name: 'Track', path: '/track' },
+  { name: 'Blog Posts', path: '/blog' },
   { name: 'Contact', path: '/contact' },
 ];
 
@@ -28,7 +30,7 @@ export const Navbar = () => {
                 alt="lotopital_logo"
               />
             </div>
-            <span className="text-xl font-bold bg-gradient-to-r from-blue-600 to-orange-500 bg-clip-text text-transparent">
+            <span className="text-xl font-bold btn-secondary bg-clip-text text-transparent">
               Lotopital Consult
             </span>
           </Link>

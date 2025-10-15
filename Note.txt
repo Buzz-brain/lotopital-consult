@@ -1,0 +1,80 @@
+CAC VAS API Documentation Summary
+==================================
+
+Website: https://vas.cac.gov.ng/
+Documentation: https://vas.cac.gov.ng/documentation-page
+
+---
+
+API Product Categories
+----------------------
+
+1. Business Registration Services
+   - Business name registration API
+   - LLC registration API
+   - LP & LLP registration API
+   - Certificate download API
+
+2. Business Validation Services
+   - Get company and its affiliates information by RC number
+   - Get companies an individual is affiliated with by phone number
+   - Get company share capital
+   - Get company share distribution across shareholders
+   - Get years company has filed annual returns
+   - Get company objects
+   - Get entity winding information
+   - Get entity charge on assets
+   - Business validation single service (premium)
+
+---
+
+Example API Endpoint
+--------------------
+- VRC - GET COMPANY WINDING UP
+  - Method: POST
+  - URL: {BaseUrl}/api/vas/validation/secure/wind-up
+  - Description: Returns the winding information of an entity.
+  - Example response:
+    { "vrc": "08yvysra2n" }
+
+---
+
+Example API Response (Company Info)
+-----------------------------------
+{
+  "id": 15,
+  "summary": "cac_check": "verified",
+  "status": [
+    {
+      "status": "complete",
+      "state": "verified"
+    }
+  ],
+  "cac": [
+    {
+      "rcNumber": "33029090",
+      "companyName": "Company B",
+      "companyType": "Public",
+      "registrationDate": "07-Jul-95",
+      "branchAddress": "23 Simple Lane",
+      "companyEmail": "Colin.Schneider@gmail.com",
+      "city": "Ikeja",
+      "headOfficeAddress": "Abuja, Nigeria",
+      "lga": "Opebi",
+      "affiliates": "3",
+      "state": "Lagos",
+      "status": "Active"
+    }
+  ]
+}
+
+---
+
+Integration Steps
+-----------------
+- Create an account to get started: https://vas.cac.gov.ng/create-account
+- For more details or partnership, contact: caccompliance@oasismgt.net
+
+---
+
+Note: Full API documentation, authentication requirements, and more detailed endpoint usage may require account creation or direct contact with CAC VAS support.
