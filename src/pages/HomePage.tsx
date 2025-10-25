@@ -116,12 +116,13 @@ export const HomePage = () => {
           playsInline
           aria-hidden="true"
         />
-        
+
         {/* Dark Overlay with Gradient */}
-        <div 
+        <div
           className="absolute inset-0 bg-gradient-to-r from-black/80 to-black/40"
           style={{
-            background: "linear-gradient(to right, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.5) 100%)"
+            background:
+              "linear-gradient(to right, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.5) 100%)",
           }}
         />
 
@@ -141,7 +142,7 @@ export const HomePage = () => {
             >
               Trusted by 10,000+ Nigerian Businesses
             </motion.span>
-            
+
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -152,7 +153,7 @@ export const HomePage = () => {
               <br />
               <span className="text-blue-500">We Help You Build It Right</span>
             </motion.h1>
-            
+
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -161,10 +162,9 @@ export const HomePage = () => {
             >
               Simplified, Stress Free & Secure.
               <br />
-              Register Your Business With Corporate Affairs Commission, Nigeria
-              in Minutes.
+              Register Your Business With Lotopital Consult In Minutes.
             </motion.p>
-            
+
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
