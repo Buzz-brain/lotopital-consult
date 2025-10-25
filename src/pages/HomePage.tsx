@@ -104,48 +104,78 @@ const itemVariants = {
 export const HomePage = () => {
   return (
     <div className="min-h-screen">
-      <section className="relative pt-20 pb-16 px-4 overflow-hidden">
-        {/* Subtle diagonal gradient overlay background */}
-        <div className="absolute inset-0 pointer-events-none">
-          <div
-            style={{
-              width: "100%",
-              height: "100%",
-              background: "linear-gradient(120deg, #2563eb 0%, #fff 80%)",
-              opacity: 0.16,
-            }}
-          />
-        </div>
+      <section className="relative min-h-screen overflow-hidden">
+        {/* Hero Background Video (public/hero.mp4) */}
+        <video
+          className="absolute inset-0 w-full h-full object-cover"
+          src="/hero.mp4"
+          poster="https://images.unsplash.com/photo-1543269865-cbf427effbad?auto=format&fit=crop&q=80&w=2000"
+          autoPlay
+          muted
+          loop
+          playsInline
+          aria-hidden="true"
+        />
+        
+        {/* Dark Overlay with Gradient */}
+        <div 
+          className="absolute inset-0 bg-gradient-to-r from-black/80 to-black/40"
+          style={{
+            background: "linear-gradient(to right, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.5) 100%)"
+          }}
+        />
 
-        <div className="max-w-7xl mx-auto relative z-10 flex flex-col md:flex-row items-center justify-between gap-12">
-          {/* Left: Text & Buttons */}
+        {/* Content */}
+        <div className="relative z-10 max-w-7xl mx-auto px-4 py-32 min-h-[80vh] flex items-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="w-full md:w-1/2 flex flex-col justify-center items-start md:items-start text-left pl-0 md:pl-16"
+            className="max-w-3xl"
           >
-            <span className="px-4 py-2 rounded-full btn-secondary text-white text-sm font-medium mb-6">
+            <motion.span
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2 }}
+              className="inline-block px-4 py-2 rounded-full bg-white/10 text-white text-sm font-medium backdrop-blur-sm mb-6 border border-white/20"
+            >
               Trusted by 10,000+ Nigerian Businesses
-            </span>
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
-              <span className="bg-gradient-to-r from-blue-700 via-blue-700 to-orange-700 bg-clip-text text-transparent">
-                Structure is the New Strategy -
-              </span>
+            </motion.span>
+            
+            <motion.h1
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.4 }}
+              className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight text-white"
+            >
+              Structure is the New Strategy -
               <br />
-              <span className="text-gray-900"> We Help You Build It Right</span>
-            </h1>
-            <p className="text-xl text-gray-600 mb-10 max-w-2xl">
-              Simplified, Stress Free & Secure. <br />
+              <span className="text-blue-400">We Help You Build It Right</span>
+            </motion.h1>
+            
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.6 }}
+              className="text-xl text-gray-200 mb-10 max-w-2xl"
+            >
+              Simplified, Stress Free & Secure.
+              <br />
               Register Your Business With Corporate Affairs Commission, Nigeria
               in Minutes.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4">
+            </motion.p>
+            
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.8 }}
+              className="flex flex-col sm:flex-row gap-4"
+            >
               <Link to="/register">
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="px-8 py-4 btn-primary text-white rounded-lg font-semibold shadow-lg hover:shadow-xl transition-shadow group flex items-center justify-center gap-2"
+                  className="px-8 py-4 bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white rounded-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center gap-2 group"
                 >
                   Start Registration
                   <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
@@ -155,29 +185,13 @@ export const HomePage = () => {
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="px-8 py-4 bg-white text-gray-700 rounded-lg font-semibold border-2 border-gray-200 hover:border-blue-600 transition-colors"
+                  className="px-8 py-4 bg-white/10 backdrop-blur-sm hover:bg-white/20 text-white rounded-lg font-semibold border border-white/30 hover:border-white/50 transition-all duration-300"
                 >
                   Learn More
                 </motion.button>
               </Link>
-            </div>
+            </motion.div>
           </motion.div>
-
-          {/* Right: Extra Prominent Human Image (no card, no shadow, no border) */}
-          <div className="w-full md:w-1/2 flex justify-center md:justify-end mt-12 md:mt-0 pr-0 md:pr-16">
-            <img
-              src="https://res.cloudinary.com/df2q6gyuq/image/upload/v1760027009/lotopitalhero_gnkdz3.png"
-              alt="Business professional"
-              className="w-[580px] h-[400px] object-cover"
-              style={{
-                maxWidth: "100%",
-                height: "auto",
-                borderRadius: 0,
-                boxShadow: "none",
-                background: "none",
-              }}
-            />
-          </div>
         </div>
       </section>
 
