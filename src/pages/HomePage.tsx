@@ -109,7 +109,7 @@ export const HomePage = () => {
         <video
           className="absolute inset-0 w-full h-full object-cover"
           src="/hero.mp4"
-          poster="https://images.unsplash.com/photo-1543269865-cbf427effbad?auto=format&fit=crop&q=80&w=2000"
+          poster="/heroimg.png"
           autoPlay
           muted
           loop
