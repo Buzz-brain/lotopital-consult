@@ -100,7 +100,7 @@ export const TrackPage = () => {
                       ${trackingId ? 'text-blue-600 scale-90 -translate-y-5' : 'text-gray-400 scale-100 translate-y-0'}`}
                     aria-label="Tracking ID label"
                   >
-                    Tracking ID
+                    {/* Tracking ID */}
                   </label>
                   <motion.input
                     id="track-input"

@@ -150,7 +150,7 @@ export const HomePage = () => {
             >
               Structure is the New Strategy -
               <br />
-              <span className="text-blue-400">We Help You Build It Right</span>
+              <span className="text-blue-500">We Help You Build It Right</span>
             </motion.h1>
             
             <motion.p
