@@ -1,7 +1,30 @@
+import { useState } from 'react';
+import { useToast } from '../contexts/ToastContext';
 import { motion } from 'framer-motion';
 import { Mail, Phone, MapPin, Send } from 'lucide-react';
+import { sendContactForm } from '../mocks/contactApi';
 
 export const ContactPage = () => {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+  const [loading, setLoading] = useState(false);
+  const { showToast } = useToast();
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setLoading(true);
+    try {
+      await sendContactForm({ name, email, message });
+      showToast("success", "Message sent successfully!");
+      setName("");
+      setEmail("");
+      setMessage("");
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <div className="min-h-screen pt-20">
       <section className="relative py-28 px-4 bg-[#0606c6] overflow-hidden">
@@ -46,7 +69,7 @@ export const ContactPage = () => {
                 We'd love to hear from you. Fill out the form and our team will
                 get back to you promptly.
               </p>
-              <form className="space-y-5">
+              <form className="space-y-5" onSubmit={handleSubmit}>
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
                     Full Name
@@ -55,6 +78,9 @@ export const ContactPage = () => {
                     type="text"
                     placeholder="John Doe"
                     className="w-full px-4 py-3 border-2 border-blue-100 rounded-lg focus:border-blue-600 focus:outline-none bg-white/90"
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                    required
                   />
                 </div>
                 <div>
@@ -65,6 +91,9 @@ export const ContactPage = () => {
                     type="email"
                     placeholder="john@example.com"
                     className="w-full px-4 py-3 border-2 border-blue-100 rounded-lg focus:border-blue-600 focus:outline-none bg-white/90"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    required
                   />
                 </div>
                 <div>
@@ -75,16 +104,22 @@ export const ContactPage = () => {
                     rows={6}
                     placeholder="Your message..."
                     className="w-full px-4 py-3 border-2 border-blue-100 rounded-lg focus:border-blue-600 focus:outline-none bg-white/90"
+                    value={message}
+                    onChange={(e) => setMessage(e.target.value)}
+                    required
                   />
                 </div>
                 <motion.button
+                  type="submit"
                   whileHover={{ scale: 1.03 }}
                   whileTap={{ scale: 0.98 }}
-                  className="w-full px-8 py-3 btn btn-primary font-semibold shadow-md flex items-center justify-center gap-2"
+                  className="w-full px-8 py-3 btn btn-primary font-semibold shadow-md flex items-center justify-center gap-2 disabled:opacity-60"
+                  disabled={loading}
                 >
-                  Send Message
+                  {loading ? "Sending..." : "Send Message"}
                   <Send className="w-5 h-5" />
                 </motion.button>
+                {/* Success message now handled by toast */}
               </form>
             </motion.div>
 
