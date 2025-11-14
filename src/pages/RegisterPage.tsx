@@ -167,12 +167,12 @@ export const RegisterPage = () => {
   };
 
   return (
-    <div className="min-h-screen pt-20 pb-12 px-4 bg-gradient-to-br from-gray-50 to-blue-50">
+    <div className="min-h-screen pt-20">
       {/* Hero Section */}
-      <section className="relative py-20 px-4 bg-[#0606c6] overflow-hidden rounded-3xl mb-12">
+      <section className="relative py-28 px-4 bg-[#0606c6] overflow-hidden mb-12">
         <div className="absolute inset-0 bg-black/30 pointer-events-none z-0" />
-        <div className="absolute left-1/2 top-20 -translate-x-1/2 w-96 h-24 bg-blue-200/10 blur-3xl rounded-full z-0" aria-hidden="true" />
-        <div className="max-w-3xl mx-auto text-center relative z-10">
+        <div className="absolute left-1/2 top-24 -translate-x-1/2 w-96 h-24 bg-blue-200/10 blur-3xl rounded-full z-0" aria-hidden="true" />
+        <div className="max-w-4xl mx-auto text-center relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -189,11 +189,17 @@ export const RegisterPage = () => {
       </section>
 
       <div className="max-w-5xl mx-auto">
-        {/* Stepper Container with glassmorphism */}
-        <div className="mb-12 bg-white/80 backdrop-blur-md rounded-3xl shadow-2xl border border-blue-100 p-8">
-          <div className="flex items-center justify-between">
+        {/* Stepper Container with glassmorphism and horizontal scroll on mobile */}
+  <div className="mb-12 bg-white/80 backdrop-blur-md rounded-3xl shadow-2xl border border-blue-100 px-2 py-3 md:px-8 md:py-8">
+          <div
+            className="flex items-center md:justify-between overflow-x-auto md:overflow-x-visible scrollbar-thin scrollbar-thumb-blue-200 scrollbar-track-blue-50"
+            style={{ WebkitOverflowScrolling: 'touch' }}
+          >
             {STEPS.map((step, idx) => (
-              <div key={step.id} className="flex items-center flex-1">
+              <div
+                key={step.id}
+                className="flex items-center flex-shrink-0 min-w-[120px] md:min-w-0 flex-1 pr-4 last:pr-0"
+              >
                 <div className="flex flex-col items-center flex-1">
                   <motion.div
                     initial={{ scale: 0 }}
@@ -219,7 +225,7 @@ export const RegisterPage = () => {
                 </div>
                 {idx < STEPS.length - 1 && (
                   <div
-                    className={`h-1 flex-1 mx-2 ${
+                    className={`h-1 w-8 md:flex-1 mx-2 ${
                       currentStep > step.id ? 'bg-green-500' : 'bg-gray-300'
                     }`}
                   />
@@ -234,7 +240,7 @@ export const RegisterPage = () => {
           initial={{ opacity: 0, x: 20 }}
           animate={{ opacity: 1, x: 0 }}
           exit={{ opacity: 0, x: -20 }}
-          className="relative bg-white/80 backdrop-blur-md rounded-3xl shadow-2xl border border-blue-100 p-10 flex flex-col"
+          className="relative bg-white/80 backdrop-blur-md rounded-3xl shadow-2xl border border-blue-100 px-2 py-4 md:px-10 md:py-10 flex flex-col"
         >
           {/* Step Content */}
           {renderStep()}
@@ -285,7 +291,7 @@ export const RegisterPage = () => {
 };
 
 const ServiceStep = ({ formData, updateFormData }: any) => (
-  <div className="relative bg-white/80 backdrop-blur-md rounded-2xl shadow-lg border border-blue-100 p-8">
+  <div className="relative bg-white/80 backdrop-blur-md rounded-2xl shadow-lg border border-blue-100 px-3 py-4 md:px-8 md:py-8">
     <h2 className="text-2xl font-bold mb-6 text-gray-900 text-center">Select Service Type</h2>
     <div className="grid md:grid-cols-2 gap-6">
       {services.map((service) => (
@@ -317,7 +323,7 @@ const ServiceStep = ({ formData, updateFormData }: any) => (
 );
 
 const NameSearchStep = ({ formData, updateFormData, onSearch, loading, available }: any) => (
-  <div className="relative bg-white/80 backdrop-blur-md rounded-2xl shadow-lg border border-blue-100 p-8">
+  <div className="relative bg-white/80 backdrop-blur-md rounded-2xl shadow-lg border border-blue-100 px-3 py-4 md:px-8 md:py-8">
     <h2 className="text-2xl font-bold mb-6 text-gray-900 text-center">Business Name Search</h2>
     <div className="space-y-4">
       <div>
@@ -384,7 +390,7 @@ const NameSearchStep = ({ formData, updateFormData, onSearch, loading, available
 );
 
 const BusinessDetailsStep = ({ formData, updateFormData }: any) => (
-  <div className="relative bg-white/80 backdrop-blur-md rounded-2xl shadow-lg border border-blue-100 p-8">
+  <div className="relative bg-white/80 backdrop-blur-md rounded-2xl shadow-lg border border-blue-100 px-3 py-4 md:px-8 md:py-8">
     <h2 className="text-2xl font-bold mb-6 text-gray-900 text-center">Business Details</h2>
     <div className="space-y-4">
       <div>
@@ -443,7 +449,7 @@ const BusinessDetailsStep = ({ formData, updateFormData }: any) => (
 );
 
 const DirectorDetailsStep = ({ formData, updateFormData }: any) => (
-  <div className="relative bg-white/80 backdrop-blur-md rounded-2xl shadow-lg border border-blue-100 p-8">
+  <div className="relative bg-white/80 backdrop-blur-md rounded-2xl shadow-lg border border-blue-100 px-3 py-4 md:px-8 md:py-8">
     <h2 className="text-2xl font-bold mb-6 text-gray-900 text-center">Director/Proprietor Details</h2>
     <div className="space-y-4">
       <div>
@@ -500,7 +506,7 @@ const DirectorDetailsStep = ({ formData, updateFormData }: any) => (
 );
 
 const DocumentsStep = ({ formData, updateFormData }: any) => (
-  <div className="relative bg-white/80 backdrop-blur-md rounded-2xl shadow-lg border border-blue-100 p-8">
+  <div className="relative bg-white/80 backdrop-blur-md rounded-2xl shadow-lg border border-blue-100 px-3 py-4 md:px-8 md:py-8">
     <h2 className="text-2xl font-bold mb-6 text-gray-900 text-center">Upload Documents</h2>
     <div className="space-y-4">
       <div className="border-2 border-dashed border-blue-100 rounded-xl p-12 text-center hover:border-blue-600 transition-colors bg-white/90">
@@ -539,7 +545,7 @@ const PaymentStep = ({ formData }: any) => {
   const selectedService = services.find((s) => s.id === formData.serviceType);
 
   return (
-    <div className="relative bg-white/80 backdrop-blur-md rounded-2xl shadow-lg border border-blue-100 p-8">
+  <div className="relative bg-white/80 backdrop-blur-md rounded-2xl shadow-lg border border-blue-100 px-3 py-4 md:px-8 md:py-8">
       <h2 className="text-2xl font-bold mb-6 text-gray-900 text-center">Payment</h2>
 
       <div className="relative bg-white/80 backdrop-blur-md rounded-xl shadow border border-blue-100 p-6 mb-6">
